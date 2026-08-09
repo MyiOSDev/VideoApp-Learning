@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct VideosData: Codable, Identifiable, Sendable {
+nonisolated struct VideosData: Codable, Identifiable, Sendable {
     var id: Int?
     let created_at: Date
     let videoTitle: String

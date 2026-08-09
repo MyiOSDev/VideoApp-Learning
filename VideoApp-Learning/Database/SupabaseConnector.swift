@@ -40,7 +40,7 @@ class SupabaseConnector: DatabaseConnector {
         )
     }
 
-    func getData<T: Decodable>(type: T.Type) async throws -> T? {
+    func getData<T: Decodable & Sendable>(type: T.Type) async throws -> T? {
         do {
             let data: T? = try await _client?
                 .from("VideoApp-Learning")

@@ -10,5 +10,5 @@ protocol DatabaseConnector {
     var environment: Environment { get set }
 
     func connect()
-    func getData<T: Decodable>(type: T.Type) async throws -> T?
+    func getData<T: Decodable & Sendable>(type: T.Type) async throws -> T?
 }

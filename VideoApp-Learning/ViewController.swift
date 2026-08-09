@@ -9,13 +9,11 @@ import UIKit
 import Supabase
 
 class ViewController: UIViewController {
+    let videoDataFetcher = VideosDataFetcher()
 
     override func viewDidLoad() {
-        let dbConnector = SupabaseConnector.activeInstance
-        dbConnector.connect()
-        print(dbConnector)
         Task {
-            try? await dbConnector.getData(type: [VideosData].self)
+            await videoDataFetcher.fetchData()
         }
         super.viewDidLoad()
     }
