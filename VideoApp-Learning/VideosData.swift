@@ -7,8 +7,8 @@
 
 import Foundation
 
-nonisolated struct VideosData: Codable, Identifiable, Sendable {
-    var id: Int?
+nonisolated final class VideosData: Codable, Identifiable, Sendable {
+    let id: Int?
     let created_at: Date
     let videoTitle: String
     let videoDescription: String

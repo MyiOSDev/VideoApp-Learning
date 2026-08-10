@@ -9,12 +9,12 @@ import UIKit
 import Supabase
 
 class ViewController: UIViewController {
-    let videoDataFetcher = VideosDataFetcher()
+//    let videoDataFetcher = VideosDataFetcher()
 
     override func viewDidLoad() {
-        Task {
-            await videoDataFetcher.fetchData()
-        }
-        super.viewDidLoad()
+//        Task {
+//            await videoDataFetcher.fetchData()
+//        }
+//        super.viewDidLoad()
     }
 }
