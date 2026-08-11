@@ -10,7 +10,7 @@ internal import Combine
 
 class VideosDataFetcher: ObservableObject {
     private let dbConnector = SupabaseConnector.activeInstance
-    @Published var videosData: [VideosData]?
+    @Published var videosData: [VideosData] = []
 
     init() {
         dbConnector.connect()
@@ -18,8 +18,8 @@ class VideosDataFetcher: ObservableObject {
 
     func fetchData() async {
         do {
-            videosData = try await dbConnector.getData(type: [VideosData].self)
-            print(videosData ?? "No data")
+            videosData = try await dbConnector.getData(type: [VideosData].self) ?? []
+            print(videosData)
         } catch {
             print(error.localizedDescription)
         }
