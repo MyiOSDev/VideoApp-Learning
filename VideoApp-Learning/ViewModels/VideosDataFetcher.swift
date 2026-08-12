@@ -16,12 +16,14 @@ class VideosDataFetcher: ObservableObject {
         dbConnector.connect()
     }
 
-    func fetchData() async {
-        do {
-            videosData = try await dbConnector.getData(type: [VideosData].self) ?? []
-            print(videosData)
-        } catch {
-            print(error.localizedDescription)
+    func fetchData(shouldLoadVideosData: Bool = true) async {
+        if shouldLoadVideosData {
+            do {
+                videosData = try await dbConnector.getData(type: [VideosData].self) ?? []
+                print(videosData)
+            } catch {
+                print(error.localizedDescription)
+            }
         }
     }
 }
