@@ -25,9 +25,14 @@ struct HomeView: View {
                         .bold()
                 } else {
                     List(videoDataFetcher.videosData) { videoData in
-                        NavigationLink(videoData.videoTitle) {
-                            VideoPlayerView()
-                                .environmentObject(videoData)
+                        HStack {
+                            VideoDataView().environmentObject(videoData)
+                                .frame(width: 50, height: 50)
+                            Spacer(minLength: 20)
+                            NavigationLink(videoData.videoTitle) {
+                                VideoPlayerView()
+                                    .environmentObject(videoData)
+                            }
                         }
                     }
                 }
@@ -39,7 +44,7 @@ struct HomeView: View {
                     isDataAvailable = true
                 }
             })
-            .navigationTitle("Viedos")
+            .navigationTitle("Videos")
         }
     }
 }
