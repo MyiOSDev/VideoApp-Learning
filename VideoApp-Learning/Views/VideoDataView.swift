@@ -7,22 +7,40 @@
 
 import SwiftUI
 
+enum ImageDownloadStates {
+    case Downloaded
+    case Failed
+    case IsStillLoading
+}
+
 struct VideoDataView: View {
     @EnvironmentObject var videoData: VideosData
-    @State var isLoading = true
+    @State var isLoading = ImageDownloadStates.IsStillLoading
     @State var image: UIImage?
+    @State var isError: Bool = false
 
     var body: some View {
         HStack {
-            if isLoading {
+            if isLoading == .IsStillLoading {
                 ProgressView()
-            } else {
+            } else if isLoading == .Downloaded {
                 HStack {
                     if let image {
                         Image(uiImage: image)
                             .resizable()
                             .scaledToFit()
                             .frame(width: 50, height: 50)
+                    }
+                }
+            } else if isError {
+                HStack {
+                    Button() {
+                        isLoading = .IsStillLoading
+                        Task {
+                            await loadImage()
+                        }
+                    } label: {
+                        Image(systemName: "arrow.counterclockwise")
                     }
                 }
             }
@@ -39,8 +57,13 @@ struct VideoDataView: View {
     }
     
     func loadImage() async {
-        image = try? await ImageCacher.fetchImage(from: videoData.thumbnailLink)
-        isLoading = false
+        do {
+            image = try await ImageCacher.fetchImage(from: videoData.thumbnailLink)
+            isLoading = .Downloaded
+        } catch {
+            isLoading = .Failed
+            isError = true
+        }
     }
 }
 
