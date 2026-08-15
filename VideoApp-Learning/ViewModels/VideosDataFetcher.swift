@@ -9,10 +9,16 @@ import SwiftUI
 internal import Combine
 
 class VideosDataFetcher: ObservableObject {
-    private let dbConnector = SupabaseConnector.activeInstance
+    private let dbConnector: DatabaseConnector// = SupabaseConnector.activeInstance
     @Published var videosData: [VideosData] = []
 
     init() {
+        if AppConfiguration.useStagedData {
+            print("Using Staged Data")
+        } else {
+            print("Using Supabase Data")
+        }
+        dbConnector = SupabaseConnector.activeInstance
         dbConnector.connect()
     }
 
