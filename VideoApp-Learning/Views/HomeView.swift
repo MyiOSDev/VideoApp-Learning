@@ -27,12 +27,6 @@ struct HomeView: View {
                     List(videoDataFetcher.videosData) { videoData in
                         HStack {
                             VideoDataView().environmentObject(videoData)
-                                .frame(width: 50, height: 50)
-                            Spacer(minLength: 20)
-                            NavigationLink(videoData.videoTitle) {
-                                VideoPlayerView()
-                                    .environmentObject(videoData)
-                            }
                         }
                     }
                 }

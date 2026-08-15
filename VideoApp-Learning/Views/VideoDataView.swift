@@ -13,17 +13,26 @@ struct VideoDataView: View {
     @State var image: UIImage?
 
     var body: some View {
-        VStack {
+        HStack {
             if isLoading {
                 ProgressView()
             } else {
-                if let image {
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFit()
+                HStack {
+                    if let image {
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 50, height: 50)
+                    }
                 }
             }
+            NavigationLink(videoData.videoTitle) {
+                VideoPlayerView()
+                    .environmentObject(videoData)
+            }
+            Spacer()
         }
+        .padding(.leading, 4)
         .task {
             await loadImage()
         }
