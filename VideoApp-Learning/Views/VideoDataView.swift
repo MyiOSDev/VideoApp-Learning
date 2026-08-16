@@ -1,0 +1,76 @@
+//
+//  VideoDataView.swift
+//  VideoApp-Learning
+//
+//  Created by Sumit Makkar on 13/08/26.
+//
+
+import SwiftUI
+
+enum ImageDownloadStates {
+    case Downloaded
+    case Failed
+    case IsStillLoading
+}
+
+struct VideoDataView: View {
+    @EnvironmentObject var videoData: VideosData
+    @State var isLoading = ImageDownloadStates.IsStillLoading
+    @State var image: UIImage?
+    @State var isError: Bool = false
+
+    var body: some View {
+        HStack {
+            Group {
+                if isLoading == .IsStillLoading {
+                    ProgressView()
+                } else if isLoading == .Downloaded {
+                    HStack {
+                        if let image {
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 50, height: 50)
+                        }
+                    }
+                } else if isError {
+                    HStack {
+                        Button() {
+                            isLoading = .IsStillLoading
+                            Task {
+                                await loadImage()
+                            }
+                        } label: {
+                            Image(systemName: "arrow.counterclockwise")
+                        }
+                        .buttonStyle(.borderless)
+                    }
+                }
+            }
+            Spacer()
+            NavigationLink(videoData.videoTitle) {
+                VideoPlayerView()
+                    .environmentObject(videoData)
+            }
+        }
+        .padding(.leading, 4)
+        .task {
+            await loadImage()
+        }
+    }
+    
+    func loadImage() async {
+        do {
+            image = try await ImageCacher.fetchImage(from: videoData.thumbnailLink)
+            isLoading = .Downloaded
+        } catch {
+            isLoading = .Failed
+            isError = true
+        }
+    }
+}
+
+#Preview {
+    VideoDataView()
+        .environmentObject(VideosData(id: 1, created_at: Date(), videoTitle: "Hanuman Ji", videoDescription: "Hanuman Ji Mantra", videoLink: "https://hvlzboczvxwktwprvkqi.supabase.co/storage/v1/object/sign/VideoApp-Learning/Videos/HanumanjiMantra.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8xNWJkYWJjNS1mYmZmLTRkMjItODhiMi03NDEyYmUwOGQwZmYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJWaWRlb0FwcC1MZWFybmluZy9WaWRlb3MvSGFudW1hbmppTWFudHJhLm1wNCIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODYxMTg3MjIsImV4cCI6MjY1MDExODcyMn0.NrB1zLjr_lhbtpG88kLHVFy1R-upQWV80Mrhiqrut54", thumbnailLink: "https://hvlzboczvxwktwprvkqi.supabase.co/storage/v1/object/sign/VideoApp-Learning/Thumbnails/Hanumanji.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8xNWJkYWJjNS1mYmZmLTRkMjItODhiMi03NDEyYmUwOGQwZmYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJWaWRlb0FwcC1MZWFybmluZy9UaHVtYm5haWxzL0hhbnVtYW5qaS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg2MTE4Nzg1LCJleHAiOjI2NTAxMTg3ODV9.vc2AjiDLZ_7UIlA8790NUFSmFqqPJMoWhKTdOzB4a_U"))
+}
