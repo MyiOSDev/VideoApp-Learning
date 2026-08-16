@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "created_at": "2026-08-16T17:43:00Z",
+    "videoTitle": "Hanuman Ji",
+    "videoDescription": "Manojavam Marut Tulya Vegam Jitendriyam Buddhi Mataam Varishtham I Vaataatmajam Vaanara Yooth Mukhyam Shri Raama Dootam Sharnam Prapadye",
+    "videoLink": "https://hvlzboczvxwktwprvkqi.supabase.co/storage/v1/object/sign/VideoApp-Learning/Videos/HanumanjiMantra.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8xNWJkYWJjNS1mYmZmLTRkMjItODhiMi03NDEyYmUwOGQwZmYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJWaWRlb0FwcC1MZWFybmluZy9WaWRlb3MvSGFudW1hbmppTWFudHJhLm1wNCIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODYxMTg3MjIsImV4cCI6MjY1MDExODcyMn0.NrB1zLjr_lhbtpG88kLHVFy1R-upQWV80Mrhiqrut54",
+    "thumbnailLink": "https://hvlzboczvxwktwprvkqi.supabase.co/storage/v1/object/sign/VideoApp-Learning/Thumbnails/Hanumanji.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8xNWJkYWJjNS1mYmZmLTRkMjItODhiMi03NDEyYmUwOGQwZmYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJWaWRlb0FwcC1MZWFybmluZy9UaHVtYm5haWxzL0hhbnVtYW5qaS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg2MTE4Nzg1LCJleHAiOjI2NTAxMTg3ODV9.vc2AjiDLZ_7UIlA8790NUFSmFqqPJMoWhKTdOzB4a_U"
+  },
+  {
+    "id": 2,
+    "created_at": "2026-08-16T17:43:00Z",
+    "videoTitle": "Karpur Gauram",
+    "videoDescription": "Karpūra Gauram Karunāvatāram,Samsāra Sāram Bhujagendra Hāram |Sadā Vasantam Hridayāravinde,Bhavam Bhavāni Sahitam Namāmi ||",
+    "videoLink": "https://hvlzboczvxwktwprvkqi.supabase.co/storage/v1/object/sign/VideoApp-Learning/Videos/KarpurGauram.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8xNWJkYWJjNS1mYmZmLTRkMjItODhiMi03NDEyYmUwOGQwZmYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJWaWRlb0FwcC1MZWFybmluZy9WaWRlb3MvS2FycHVyR2F1cmFtLm1wNCIsInNjb3BlIjoiZG93bmxvYWQiLCJpYXQiOjE3ODYxMTg3NDgsImV4cCI6MjY1MDExODc0OH0.Eg2nxDdMsNfR_9LCRYqminr0Vh3utwoyy2CcBRcIg3g",
+    "thumbnailLink": "https://hvlzboczvxwktwprvkqi.supabase.co/storage/v1/object/sign/VideoApp-Learning/Thumbnails/Karpurgauram.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8xNWJkYWJjNS1mYmZmLTRkMjItODhiMi03NDEyYmUwOGQwZmYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJWaWRlb0FwcC1MZWFybmluZy9UaHVtYm5haWxzL0thcnB1cmdhdXJhbS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg2MTE4ODAwLCJleHAiOjI2NTAxMTg4MDB9.azDtzahWWRiHax7G3Wco-licOJ50Q2wMKljiRtPLYUk"
+  },
+  {
+    "id": 3,
+    "created_at": "2026-08-16T17:43:00Z",
+    "videoTitle": "Sample Video",
+    "videoDescription": "This is sample video for video learning in iOS",
+    "videoLink": "https://hvlzboczvxwktwprvkqi.supabase.co/storage/v1/object/sign/VideoApp-Learning/Videos/SampleVideo.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8xNWJkYWJjNS1mYmZmLTRkMjItODhiMi03NDEyYmUwOGQwZmYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJWaWRlb0FwcC1MZWFybmluZy9WaWRlb3MvU2FtcGxlVmlkZW8ubXA0Iiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4NjExODc2OSwiZXhwIjoyNjUwMTE4NzY5fQ.SeM6QhQlDcJkUbrMdHa5YYYW_tab9WjowCcwAksTK-k",
+    "thumbnailLink": "https://hvlzboczvxwktwprvkqi.supabase.co/storage/v1/object/sign/VideoApp-Learning/Thumbnails/Sample.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8xNWJkYWJjNS1mYmZmLTRkMjItODhiMi03NDEyYmUwOGQwZmYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJWaWRlb0FwcC1MZWFybmluZy9UaHVtYm5haWxzL1NhbXBsZS5wbmciLCJzY29wZSI6ImRvd25sb2FkIiwiaWF0IjoxNzg2MTE4ODE1LCJleHAiOjI2NTAxMTg4MTV9.z28HcoXjYgGo3yNgqHjayvOo1BcU-PFqgcmeawFslew"
+  }
+]

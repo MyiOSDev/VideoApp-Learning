@@ -21,34 +21,37 @@ struct VideoDataView: View {
 
     var body: some View {
         HStack {
-            if isLoading == .IsStillLoading {
-                ProgressView()
-            } else if isLoading == .Downloaded {
-                HStack {
-                    if let image {
-                        Image(uiImage: image)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 50, height: 50)
-                    }
-                }
-            } else if isError {
-                HStack {
-                    Button() {
-                        isLoading = .IsStillLoading
-                        Task {
-                            await loadImage()
+            Group {
+                if isLoading == .IsStillLoading {
+                    ProgressView()
+                } else if isLoading == .Downloaded {
+                    HStack {
+                        if let image {
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 50, height: 50)
                         }
-                    } label: {
-                        Image(systemName: "arrow.counterclockwise")
+                    }
+                } else if isError {
+                    HStack {
+                        Button() {
+                            isLoading = .IsStillLoading
+                            Task {
+                                await loadImage()
+                            }
+                        } label: {
+                            Image(systemName: "arrow.counterclockwise")
+                        }
+                        .buttonStyle(.borderless)
                     }
                 }
             }
+            Spacer()
             NavigationLink(videoData.videoTitle) {
                 VideoPlayerView()
                     .environmentObject(videoData)
             }
-            Spacer()
         }
         .padding(.leading, 4)
         .task {

@@ -15,10 +15,11 @@ class VideosDataFetcher: ObservableObject {
     init() {
         if AppConfiguration.useStagedData {
             print("Using Staged Data")
+            dbConnector = StagedDataConnector.activeInstance
         } else {
             print("Using Supabase Data")
+            dbConnector = SupabaseConnector.activeInstance
         }
-        dbConnector = SupabaseConnector.activeInstance
         dbConnector.connect()
     }
 
